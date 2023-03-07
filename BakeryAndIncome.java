@@ -30,22 +30,26 @@ public final class BakeryAndIncome {
     * @param args Unused.
     */
     public static void main(String[] args) {
-        // create instance of Random class
+        // create instance of Random class.
         final Random rand = new Random();
-    
-        // Using scanner to get user input
+
+        // Greeting the user and telling them about the program.
         System.out.println("Welcome to Adrijan's bakery.");
         System.out.println("We are selling croissants for 2.25$");
         System.out.println("If you buy 6 or more you don't pay HST.");
         System.out.println("If you buy 10 or more you get a mystery discount.");
         System.out.println("How many would you like to purchase");
 
+        // Creating a scanner and using it to get user input.
         final Scanner scanner = new Scanner(System.in);
         final String userOrder = scanner.nextLine();
+
+        // Making sure user doesn't enter a string.'
         try {
 
             // Make user input an int.
             final double orderAsInt = Integer.parseInt(userOrder);
+
             // Check for valid input.
             if (orderAsInt >= 10) {
                 // calculate the cost of the order.
@@ -68,46 +72,61 @@ public final class BakeryAndIncome {
                 // Display the total cost.
                 System.out.println("The final price is "
                     + orderPrice + "$.");
-            } else if (orderAsInt > 0) {
+            } else if (orderAsInt >= 0) {
                 // calculate the cost of the order.
                 final double orderPrice = 2.25 * orderAsInt;
 
-                // Calulate HST.
+                // Calculate price with HST.
                 final double hstTotal = 0.13 * orderPrice;
                 final double total = orderPrice - hstTotal;
 
+                // Display the total cost.
                 System.out.println("The final price is "
                     + String.format("%.2f", total)
                         + "$, after HST.");
             } else {
+                 // Display if user enters invalid input.
                 System.out.println("That is not a valid input.");
             }
 
         } catch (NumberFormatException error) {
+            // Display if user enters invalid input.
             System.out.println("Please enter a valid input!"
                 + error.getMessage());
         }
         // Generate random integers in range 0 to 100000.
         int rand_int2 = rand.nextInt(100000);
         rand_int2 = rand_int2 + 1;
+
+        // Greet user and ask for their income.
         System.out.println("Enter your yearly income:");
         System.out.println("For example " + rand_int2 + ".");
+
+        // Read user input.
         final String userIncome = scanner.nextLine();
+
+        // Make sure user doesn't enter a string.
         try {
             // Make user input an int.
             final double incomeAsInt = Integer.parseInt(userIncome);
+
             // Check for valid input.
             if (incomeAsInt < 0) {
+                // Display invalid input.
                 System.out.println("That is not a valid input.");
 
             } else if (incomeAsInt > 60000) {
+                // Display above average income.
                 System.out.println("Your income is above average.");
-            } else if (incomeAsInt > 0) {
+            } else if (incomeAsInt < 60000) {
+                // Display below average income.
                 System.out.println("Your income is under average.");
             } else {
+                // Display average income.
                 System.out.println("Your income is average.");
             }
         } catch (NumberFormatException error) {
+            // Display error.
             System.out.println("Please enter a valid input!"
                 + error.getMessage());
         }
