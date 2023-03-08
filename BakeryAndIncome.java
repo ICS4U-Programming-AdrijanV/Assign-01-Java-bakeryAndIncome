@@ -56,15 +56,15 @@ public final class BakeryAndIncome {
                 final double orderPrice = 2.25 * orderAsInt;
 
                 // Generate random integers in range 0 to 10.
-                int rand_int = rand.nextInt(9);
-                rand_int = rand_int + 1;
+                int randInt = rand.nextInt(9);
+                randInt = randInt + 1;
 
                 // Calculate the total with discount.
-                final double total = orderPrice - rand_int;
+                final double total = orderPrice - randInt;
 
                 // Display the total cost.
                 System.out.println("The final price with a "
-                    + rand_int + "$ discount is "
+                    + randInt + "$ discount is "
                         + total + "$.");
             } else if (orderAsInt >= 6) {
                 // calculate the cost of the order.
@@ -95,12 +95,12 @@ public final class BakeryAndIncome {
                 + error.getMessage());
         }
         // Generate random integers in range 0 to 100000.
-        int rand_int2 = rand.nextInt(100000);
-        rand_int2 = rand_int2 + 1;
+        int randInt2 = rand.nextInt(100000);
+        randInt2 = randInt2 + 1;
 
         // Greet user and ask for their income.
         System.out.println("Enter your yearly income:");
-        System.out.println("For example " + rand_int2 + ".");
+        System.out.println("For example " + randInt2 + ".");
 
         // Read user input.
         final String userIncome = scanner.nextLine();
@@ -108,7 +108,7 @@ public final class BakeryAndIncome {
         // Make sure user doesn't enter a string.
         try {
             // Make user input an int.
-            final double incomeAsInt = Integer.parseInt(userIncome);
+            final double incomeAsInt = Double.parseDouble(userIncome);
 
             // Check for valid input.
             if (incomeAsInt < 0) {
